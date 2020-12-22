@@ -1,6 +1,6 @@
 def find_invalid(nums, n):
     for i in range(n, len(nums)):
-        sums = {p[i-n+j] + p[i-n+k] for j in range(n) for k in range(n) if j != k}
+        sums = {nums[i-n+j] + nums[i-n+k] for j in range(n) for k in range(n) if j != k}
         if nums[i] not in sums:
             return nums[i]
 

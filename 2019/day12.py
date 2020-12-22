@@ -1,4 +1,5 @@
-import math, re
+import re
+from gcd import lcm
 
 def moon(line):
     return [int(x) for x in re.findall(r"(-?\d+)", line)] + [0,0,0]
@@ -38,9 +39,6 @@ def universe_repeats(moons):
     # now we can say that the first cycle of all three elements is
     # the lowest common multiple of the three independent cycles
     return lcm(lcm(len(seenx), len(seeny)), len(seenz))
-
-def lcm(a, b):
-    return (a * b) // math.gcd(a, b)
 
 with open("day12.txt") as fh:
     moons = [moon(line) for line in fh.readlines()]

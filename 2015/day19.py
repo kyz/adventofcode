@@ -1,9 +1,11 @@
 def molecules(formula, replacements):
     for (s, r) in replacements:
         start = 0
-        while (i := formula.find(s, start)) > -1:
+        i = formula.find(s, start)
+        while i > -1:
             start = i + len(s)
             yield formula[:i] + r + formula[start:]
+            i = formula.find(s, start)
 
 def steps_needed(medicine, replacements):
     # go from full medicine backwards to "e",
