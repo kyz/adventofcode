@@ -22,9 +22,6 @@ def chart_aim(directions):
     return hpos * depth
 
 
-def count_triples(nums):
-    return sum(1 if nums[i+2] > nums[i-1] else 0 for i in range(1, len(nums)-2))
-
 with open("day02.txt", "r") as fh:
     directions = [line.strip().split() for line in fh.readlines()]
     print("2021 day 02 part 1: %d" % chart_course(directions))
