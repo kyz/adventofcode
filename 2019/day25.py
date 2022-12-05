@@ -3,8 +3,10 @@ import sys, intcode, re
 def readline(cpu):
     line = []
     try:
-        while (out := next(cpu)) is not None:
+        out = next(cpu)
+        while out is not None:
             line.append(chr(out))
+            out = next(cpu)
     except StopIteration:
         pass
     return "".join(line)
